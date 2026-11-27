@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>독서모임 멤버 모집</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+<script>
+/* =====================================================
+   ★ 여기만 고치세요! 따옴표("") 안의 글자만 바꾸면 됩니다.
+   - 글 안에 큰따옴표는 “ ” 로 쓰세요.
+   - 항목 추가는 { ... }, 한 덩어리를 복사해서 붙여 넣기.
+   - 신청링크에 구글폼 주소를 붙여 넣으면 신청 버튼이 연결돼요.
+   ===================================================== */
+const 내용 = {
+  사이트제목: "책한잔 독서모임 | 멤버 모집",
+  모임이름: "책한잔 독서모임",
+  메인문구: ["같은 책을 읽고,", "서로 다른 생각을 나눠요"],
+  한줄소개: "한 달에 한 권, 부담 없이 읽고 편하게 이야기하는 모임입니다. 책을 많이 읽지 않았어도 괜찮아요.",
+  모집상태: "12월 15일까지 모집해요",
+
+  // 구글폼 주소를 여기에 붙여 넣으세요
+  신청링크: "https://docs.google.com/forms/d/e/1FAIpQLSc-D8BKQEDSv96aaUDygsjzHXQ2LmdT1TpFUoFBrho7IgleDw/viewform",
+  페이지안에표시: false,   // false: 버튼을 누르면 새 창에서 신청서가 열려요 / true: 페이지 안에 신청서가 바로 보여요
+  신청버튼: "참여 신청하기",
+  신청서제목: "신청서 작성",
+  신청서높이: 1500,   // 폼이 잘려 보이면 숫자를 키우세요
+
+  특징제목: "이런 모임이에요",
+  특징: [
+    { 제목: "한 달에 한 권", 설명: "무리하지 않는 속도로 읽어요. 책은 투표로 함께 정합니다." },
+    { 제목: "정답 없는 이야기", 설명: "잘 읽었는지 겨루지 않아요. 느낀 점 한 줄이면 충분합니다." },
+    { 제목: "편안한 분위기", 설명: "6~8명의 소규모로 모여서, 처음 온 사람도 말문이 트이도록 도와요." }
+  ],
+
+  정보제목: "모임 정보",
+  정보: [
+    { 항목: "모임 일정", 내용: "매월 둘째 주 토요일 오후 2시" },
+    { 항목: "장소", 내용: "동네 북카페 (신청자에게 따로 안내)" },
+    { 항목: "모집 인원", 내용: "8명" },
+    { 항목: "참가비", 내용: "무료 (음료는 각자 주문)" },
+    { 항목: "모집 기간", 내용: "12월 15일까지" }
+  ],
+
+  진행제목: "이렇게 진행돼요",
+  진행: [
+    { 제목: "신청서 작성", 설명: "아래 버튼으로 간단한 신청서를 작성해 주세요. 3분이면 끝나요." },
+    { 제목: "참가 안내", 설명: "신청 후 3일 안에 문자나 메일로 참가 여부와 모임 정보를 보내드려요." },
+    { 제목: "첫 모임", 설명: "함께 읽을 책을 정하고, 서로 인사를 나눕니다." }
+  ],
+
+  대상제목: "이런 분을 기다려요",
+  대상: [
+    "책을 읽고 싶은데 혼자서는 잘 안 되는 분",
+    "읽은 책 이야기를 나눌 사람이 필요한 분",
+    "다른 사람의 생각이 궁금한 분",
+    "한 달에 한 번, 꾸준히 참여할 수 있는 분"
+  ],
+
+  질문제목: "자주 묻는 질문",
+  질문: [
+    { 질문: "책을 많이 읽지 않았어도 되나요?", 답: "그럼요. 읽는 속도보다 이야기하고 싶은 마음이 더 중요해요." },
+    { 질문: "책을 다 못 읽고 가도 되나요?", 답: "괜찮아요. 읽은 부분까지의 이야기를 나누면 됩니다." },
+    { 질문: "모임에 못 가는 달이 있으면요?", 답: "미리 알려주시면 돼요. 다음 달에 다시 만나요." }
+  ],
+
+  마무리제목: "다음 책장을 같이 넘겨요",
+  마무리문구: "신청서를 보내 주시면 천천히 읽고 연락드릴게요. 궁금한 점은 아래 연락처로 편하게 물어보세요.",
+  문의: "문의: 카카오톡 오픈채팅 또는 hello@example.com",
+  푸터: "© 2026 책한잔 독서모임"
+};
+/* ===================== 수정 영역 끝 ===================== */
+</script>
+
+<style>
+:root{
+  --bg:#EFF4EE; --surface:#FAFCF8; --ink:#1F3D36; --muted:#52695F;
+  --accent:#E0A63A; --soft:#DDE9DC; --line:#C6D6C7;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#16241F; --surface:#1E3029; --ink:#E8F0E6; --muted:#A5BDB2;
+    --accent:#E8B450; --soft:#24392F; --line:#34524A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16241F; --surface:#1E3029; --ink:#E8F0E6; --muted:#A5BDB2;
+  --accent:#E8B450; --soft:#24392F; --line:#34524A;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:17px;line-height:1.85}
+h1,h2,h3{font-family:"Gowun Batang","Nanum Myeongjo",serif;line-height:1.35;margin:0}
+p{margin:0}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+section{padding:60px 0}
+h2{font-size:clamp(24px,4vw,31px);margin-bottom:26px}
+
+.btn{display:inline-block;background:var(--accent);color:#2A2412;text-decoration:none;font-weight:700;padding:15px 32px;border-radius:999px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* hero */
+.hero{padding:88px 0 0;overflow:hidden}
+.club{font-size:16px;color:var(--muted)}
+.hero h1{font-size:clamp(34px,6.5vw,58px);font-weight:700;margin:14px 0 22px;max-width:13em}
+.hero .sub{max-width:30em;color:var(--muted);font-size:19px}
+.cta{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px}
+.status{color:var(--muted);font-size:15px}
+.shelf{display:flex;align-items:flex-end;gap:7px;margin-top:56px;padding:0 24px;max-width:880px;margin-left:auto;margin-right:auto;border-bottom:8px solid var(--ink);height:150px}
+.shelf i{display:block;border-radius:4px 4px 0 0;width:34px;transform-origin:bottom left}
+.shelf i:nth-child(1){height:110px;background:#3F7D6B}
+.shelf i:nth-child(2){height:132px;background:var(--accent);width:28px}
+.shelf i:nth-child(3){height:98px;background:#5B7FA6;width:40px}
+.shelf i:nth-child(4){height:122px;background:#8A5A7A;width:30px}
+.shelf i:nth-child(5){height:104px;background:var(--ink);width:26px}
+.shelf i:nth-child(6){height:128px;background:#3F7D6B;width:36px;transform:rotate(9deg)}
+.shelf i:nth-child(7){height:90px;background:var(--accent);width:32px;margin-left:12px}
+.shelf i:nth-child(8){height:116px;background:#5B7FA6;width:28px}
+.fall{animation:lean 1s .4s ease-out both}
+@keyframes lean{from{transform:rotate(0)}to{transform:rotate(9deg)}}
+.shelf i:nth-child(6){animation:lean .9s .5s ease-out both}
+
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feat{border-top:4px solid var(--accent);padding-top:16px}
+.feat h3{font-size:20px;margin-bottom:6px}
+.feat p{color:var(--muted)}
+
+.info{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:8px 28px;margin:0}
+.info div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.info div:last-child{border:0}
+.info dt{color:var(--muted)}
+.info dd{margin:0;font-weight:700}
+
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;gap:22px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:16px}
+.steps li::before{content:counter(s);width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"Gowun Batang",serif;font-size:20px;font-weight:700}
+.steps h3{font-size:19px;margin-bottom:2px}
+.steps p{color:var(--muted)}
+
+.who{background:var(--soft);border-radius:28px;padding:40px 36px}
+.who ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.who li{padding-left:34px;position:relative}
+.who li::before{content:"";position:absolute;left:4px;top:.55em;width:14px;height:8px;border-left:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(-45deg)}
+
+details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 22px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--muted)}
+details[open] summary::after{content:"−"}
+details p{margin-top:10px;color:var(--muted)}
+
+.apply iframe{display:block;width:100%;border:0;border-radius:22px;background:var(--surface)}
+.closing{text-align:center;background:var(--ink);color:var(--bg);border-radius:32px;padding:56px 28px}
+.closing h2{margin-bottom:16px}
+.closing p{max-width:28em;margin:0 auto 26px;opacity:.85}
+.closing .ask{margin:22px auto 0;font-size:15px}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:32px 0 48px}
+
+@media (max-width:700px){
+  section{padding:44px 0}
+  .hero{padding-top:60px}
+  .feats{grid-template-columns:1fr}
+  .info div{grid-template-columns:1fr;gap:2px}
+  .who{padding:30px 22px}
+  .shelf{gap:5px;height:130px}
+  .shelf i{width:24px!important}
+}
+@media (prefers-reduced-motion:reduce){.shelf i{animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p id="club" class="club"></p>
+    <h1 id="heroTitle"></h1>
+    <p id="heroSub" class="sub"></p>
+    <div class="cta"><a id="heroBtn" class="btn" target="_blank" rel="noopener"></a><span id="status" class="status"></span></div>
+  </div>
+  <div class="shelf" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</header>
+
+<main>
+<section><div class="wrap"><h2 id="featTitle"></h2><div id="feats" class="feats"></div></div></section>
+<section><div class="wrap"><h2 id="infoTitle"></h2><dl id="info" class="info"></dl></div></section>
+<section><div class="wrap"><h2 id="stepTitle"></h2><ol id="steps" class="steps"></ol></div></section>
+<section><div class="wrap"><div class="who"><h2 id="whoTitle"></h2><ul id="who"></ul></div></div></section>
+<section><div class="wrap"><h2 id="faqTitle"></h2><div id="faq"></div></div></section>
+<section id="applySec" class="apply" hidden>
+  <div class="wrap">
+    <h2 id="applyTitle"></h2>
+    <iframe id="applyFrame" title="신청서" loading="lazy"></iframe>
+    <p class="status" style="margin-top:12px">신청서가 보이지 않으면 <a id="applyOpen" style="color:inherit" target="_blank" rel="noopener">새 창에서 열기</a></p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="closing">
+      <h2 id="endTitle"></h2>
+      <p id="endText"></p>
+      <a id="endBtn" class="btn" target="_blank" rel="noopener"></a>
+      <p id="ask" class="ask"></p>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="footer"></footer>
+
+<script>
+(function(){
+  var C = 내용;
+  var $ = function(id){ return document.getElementById(id); };
+  function make(tag, cls, text){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  document.title = C.사이트제목;
+  $("club").textContent = C.모임이름;
+  C.메인문구.forEach(function(line, i){
+    if (i) $("heroTitle").appendChild(document.createElement("br"));
+    $("heroTitle").appendChild(document.createTextNode(line));
+  });
+  $("heroSub").textContent = C.한줄소개;
+  $("status").textContent = C.모집상태;
+  ["heroBtn","endBtn"].forEach(function(id){
+    $(id).textContent = C.신청버튼;
+    $(id).href = C.신청링크;
+  });
+  // 구글폼 주소면 페이지 안에 신청서를 바로 보여줍니다
+  if (C.페이지안에표시 && C.신청링크.indexOf("docs.google.com/forms") > -1) {
+    var src = C.신청링크.split("#")[0];
+    if (src.indexOf("embedded=true") < 0) src += (src.indexOf("?") > -1 ? "&" : "?") + "embedded=true";
+    $("applySec").hidden = false;
+    $("applyTitle").textContent = C.신청서제목;
+    $("applyFrame").src = src;
+    $("applyFrame").style.height = (C.신청서높이 || 1500) + "px";
+    $("applyOpen").href = C.신청링크;
+    ["heroBtn","endBtn"].forEach(function(id){
+      $(id).href = "#applySec";
+      $(id).removeAttribute("target");
+    });
+  }
+
+  $("featTitle").textContent = C.특징제목;
+  C.특징.forEach(function(f){
+    var d = make("div","feat");
+    d.appendChild(make("h3",null,f.제목));
+    d.appendChild(make("p",null,f.설명));
+    $("feats").appendChild(d);
+  });
+
+  $("infoTitle").textContent = C.정보제목;
+  C.정보.forEach(function(r){
+    var d = make("div");
+    d.appendChild(make("dt",null,r.항목));
+    d.appendChild(make("dd",null,r.내용));
+    $("info").appendChild(d);
+  });
+
+  $("stepTitle").textContent = C.진행제목;
+  C.진행.forEach(function(s){
+    var li = make("li"), d = make("div");
+    d.appendChild(make("h3",null,s.제목));
+    d.appendChild(make("p",null,s.설명));
+    li.appendChild(d);
+    $("steps").appendChild(li);
+  });
+
+  $("whoTitle").textContent = C.대상제목;
+  C.대상.forEach(function(t){ $("who").appendChild(make("li",null,t)); });
+
+  $("faqTitle").textContent = C.질문제목;
+  C.질문.forEach(function(q){
+    var d = make("details");
+    d.appendChild(make("summary",null,q.질문));
+    d.appendChild(make("p",null,q.답));
+    $("faq").appendChild(d);
+  });
+
+  $("endTitle").textContent = C.마무리제목;
+  $("endText").textContent = C.마무리문구;
+  $("ask").textContent = C.문의;
+  $("footer").textContent = C.푸터;
+})();
+</script>
+</body>
+</html>
